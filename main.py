@@ -14,7 +14,7 @@ def createDeck():
 class Player():
     def __init__(self,hand= [],money= 100):
         self.hand = hand
-        self.score = 0
+        self.score = self.setScore()
         self.money = money
 
     def __str__(self):
@@ -27,6 +27,7 @@ class Player():
         return finalStatus
 
     def setScore(self):
+        self.score = 0
 
         faceValueDict = {"A":11,
                          "J":10,
@@ -50,6 +51,7 @@ class Player():
             if self.score > 21 and aceCounter != 0:
                 self.score -= 10
                 aceCounter -= 1
+        return self.score
 
 
 
