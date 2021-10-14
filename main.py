@@ -45,6 +45,11 @@ class Player():
 
         for card in self.hand:
             self.score += faceValueDict[card]
+            if card == "A":
+                aceCounter += 1
+            if self.score > 21 and aceCounter != 0:
+                self.score -= 10
+                aceCounter -= 1
 
 
 
