@@ -16,6 +16,7 @@ class Player():
         self.hand = hand
         self.score = self.setScore()
         self.money = money
+        self.bet = 0
 
     def __str__(self):
         currentHand =""
@@ -61,11 +62,22 @@ class Player():
         self.hand =newHand
         self.score = self.setScore()
 
-    def pay(self,amount):
+    def betMoney(self,amount):
         self.money -= amount
+        self.bet += amount
 
-    def win(self,money):
-        self.money += money
+    def win(self,result):
+        if result == True:
+            if self.score == 21 and len(self.hand) == 2:
+                self.money += 2.5 * self.bet
+
+            else:
+                self.money += 2 * self.bet
+
+            self.bet = 0
+        else:
+            self.bet  = 0
+
 
 player1 = Player(["A","K","5"])
 print(player1)
