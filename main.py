@@ -53,6 +53,22 @@ class Player():
                 aceCounter -= 1
         return self.score
 
+    def hit(self,hand):
+        self.hand.append(hand)
+        self.score = self.setScore()
+
+    def play(self,newHand):
+        self.hand =newHand
+        self.score = self.setScore()
+
+    def pay(self,amount):
+        self.money -= amount
+
+    def win(self,money):
+        self.money += money
+
+player1 = Player(["A","K","5"])
+print(player1)
 
 
 
